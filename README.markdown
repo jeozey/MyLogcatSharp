@@ -1,6 +1,6 @@
 # Logcat Sharp #
-Logcat Sharp is a simple adb logcat viewer, written in C#.
-Thanks From https://github.com/Redth/LogcatSharp
++Logcat Sharp is a simple adb logcat viewer, written in C#.
++Thanks From https://github.com/Redth/LogcatSharp
 
 ## Features ##
 + Filter Messages using Regex or Simple string matching
@@ -9,8 +9,8 @@ Thanks From https://github.com/Redth/LogcatSharp
 + Finds your adb.exe automatically
 
 ## ToDo ##
-#adb logcat | findstr filterStr
-#filter str by V D I W E F S
++adb logcat | findstr filterStr
++filter str by V D I W E F S
 
 ## Screenshots ##
 ![Logcat Sharp](https://github.com/Jeozey/MyLogcatSharp/raw/master/LogcatSharpScreenshot.png "Logcat Sharp")

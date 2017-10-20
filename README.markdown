@@ -9,8 +9,9 @@
 + Finds your adb.exe automatically
 
 ## ToDo ##
-+ adb logcat | findstr filterStr
-+ filter str by V D I W E F S
++ ~~adb logcat | findstr filterStr~~
++ ~~filter str by V D I W E F S~~
++ filter pid | tag
 
 ## Screenshots ##
 ![Logcat Sharp](https://github.com/Jeozey/MyLogcatSharp/raw/master/LogcatSharpScreenshot.png "Logcat Sharp")

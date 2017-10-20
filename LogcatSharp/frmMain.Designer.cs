@@ -48,6 +48,7 @@
             // 
             this.outputAdb.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.outputAdb.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.outputAdb.Font = new System.Drawing.Font("宋体", 10.5F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.outputAdb.Location = new System.Drawing.Point(0, 25);
             this.outputAdb.Name = "outputAdb";
             this.outputAdb.ReadOnly = true;

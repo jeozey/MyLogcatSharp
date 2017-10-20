@@ -80,6 +80,8 @@ namespace LogcatSharp
             adb.StartInfo.Arguments = "devices";
             adb.StartInfo.RedirectStandardOutput = true;
             adb.StartInfo.RedirectStandardError = true;
+            adb.StartInfo.StandardErrorEncoding = UTF8Encoding.UTF8;
+            adb.StartInfo.StandardOutputEncoding = UTF8Encoding.UTF8;
             adb.EnableRaisingEvents = true;
             adb.StartInfo.CreateNoWindow = true;
             //adb.ErrorDataReceived += new DataReceivedEventHandler(adb_ErrorDataReceived);
@@ -167,6 +169,8 @@ namespace LogcatSharp
             adb.StartInfo.Arguments = String.IsNullOrEmpty(device) ? "" : ("-s " + device + " logcat") + (" *:" + logLevel);
             adb.StartInfo.RedirectStandardOutput = true;
             adb.StartInfo.RedirectStandardError = true;
+            adb.StartInfo.StandardErrorEncoding = UTF8Encoding.UTF8;
+            adb.StartInfo.StandardOutputEncoding = UTF8Encoding.UTF8;
             adb.EnableRaisingEvents = true;
             adb.StartInfo.CreateNoWindow = true;
             adb.ErrorDataReceived += new DataReceivedEventHandler(adb_ErrorDataReceived);
@@ -204,28 +208,39 @@ namespace LogcatSharp
         }
         void adb_OutputDataReceived(object sender, DataReceivedEventArgs e)
         {
-            if (this.InvokeRequired)
-                this.Invoke(new Action<object, DataReceivedEventArgs>(adb_OutputDataReceived), sender, e);
-            else
+            try
             {
-                if (String.IsNullOrEmpty(e.Data))
+                if (this.InvokeRequired)
+                    this.Invoke(new Action<object, DataReceivedEventArgs>(adb_OutputDataReceived), sender, e);
+                else
                 {
-                    return;
-                }
-                string str = e.Data;
-                string color = "0x000000";
-                if (str.IndexOf(" V ") != -1)
-                {
-                    color = "0xBBBBBB";
-                }
-                else if (str.Contains(" D ")) { color = "0x0070BB"; }
-                else if (str.Contains(" I ")) { color = "0x48BB31"; }
-                else if (str.Contains(" W ")) { color = "0xBBBB23"; }
-                else if (str.Contains(" E ")) { color = "0xFF0006"; }
-                else if (str.Contains(" A ")) { color = "0x8F0005"; }
+                    if (String.IsNullOrEmpty(e.Data))
+                    {
+                        return;
+                    }
+                    string str = e.Data;
+                    string color = "0x000000";
+                    if (str.IndexOf(" V ") != -1) { color = "0xBBBBBB"; }
+                    else if (str.Contains(" D ")) { color = "0x0070BB"; }
+                    else if (str.Contains(" I ")) { color = "0x48BB31"; }
+                    else if (str.Contains(" W ")) { color = "0xBBBB23"; }
+                    else if (str.Contains(" E ")) { color = "0xFF0006"; }
+                    else if (str.Contains(" A ")) { color = "0x8F0005"; }
 
-                outputAdb.SelectionColor = ColorTranslator.FromHtml(color);
-                outputAdb.AppendText(filterData(str));
+                    if (str.Contains("102401214079041536"))
+                    {
+                        Console.WriteLine("");
+                    }
+                    outputAdb.SelectionColor = ColorTranslator.FromHtml(color);
+                    outputAdb.AppendText(filterData(str));
+                }
+
+            }
+            catch (Exception ex)
+            {
+
+                Console.WriteLine(ex.Message + Environment.NewLine + ex.StackTrace);
+
             }
         }
 

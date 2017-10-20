@@ -1,8 +1,0 @@
-D:\Source\LogcatSharp\LogcatSharp\bin\Release\LogcatSharp.exe
-D:\Source\LogcatSharp\LogcatSharp\bin\Release\LogcatSharp.pdb
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.frmAdbFinder.resources
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.frmMain.resources
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.Properties.Resources.resources
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.csproj.GenerateResource.Cache
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.exe
-D:\Source\LogcatSharp\LogcatSharp\obj\x86\Release\LogcatSharp.pdb
